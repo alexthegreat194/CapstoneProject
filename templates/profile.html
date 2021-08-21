@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-3">Welcome back <b>{{name}}</b></h1>
+    {% if discord != "none" %}
+    User's Discord: <a name="" id="" class="btn btn-secondary" href="#" role="button">{{discord}}</a>
+    {% endif %}
+    <h3>Description:</h3>
+    <p style="padding: 5px;"><span class="border border-secondary" style="padding: 7px;">{{description}}</span></p>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Edit Profile
+        </button>
+        <div class="dropdown-menu">
+            <div class="container">
+                <form method="POST">
+                    {{editform.hidden_tag()}}
+                    <div class="form-group">
+                        {{editform.discord.label()}}
+                        {{editform.discord(class="form-control")}}
+                    </div>
+                    <div class="form-group">
+                        {{editform.description.label()}}
+                        {{editform.description(class="form-control")}}
+                    </div>
+                    {{editform.submit(type="submit", class="btn btn-primary")}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Trades</th>
+        </tr>
+    </thead>
+
+    {% for commUser in communityUsers %}
+    <tr>
+        <th>{{commUser.id}}</th>
+        <th>{{commUser.userId}}</th>
+        <th>{{commUser.rank}}</th>
+        <th>{{commUser.trades}}</th>
+    </tr>
+    {% endfor %}
+
+    
+</table>
+
+{% endblock %}

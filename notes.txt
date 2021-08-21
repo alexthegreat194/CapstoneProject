@@ -1,0 +1,31 @@
+data bases:
+
+users:
+    id
+    username
+    password(hashed)
+    Communities
+
+Community(new model for each place) models:
+Person:
+    user_id
+    user_inventory
+
+Item(used to list all the items in a Community):
+    name 
+    value 
+    description 
+    owner
+
+Chat(holds a bunch of strings)
+    username 
+    message
+    time 
+
+brainstorm:
+    people 
+    inventory
+    items
+    forums, Chat?
+
+MAKE A NEW REGISTRATIONS PAGE 

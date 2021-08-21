@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-3">Welcome to the website</h1>
+    <p class="lead">This website is used to keep track of prices, trades and communities and their virtual values</p>
+    <hr class="my-2">
+    <p>to get access to our services <b>sign in</b> or <b>create an account</b></p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{url_for('login')}}" role="button">Sign in</a>
+    </p>
+</div>
+
+<div class="container">
+    <div class="row row-cols-2 row-cols-md-3 "> 
+        {% for i in range(15) %}
+        
+        <div class="col mb-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../static/floppa.gif" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Community</h5>
+                    <p class="card-text">Some information on community</p>
+                    <a href="{{url_for('community')}}" class="btn btn-primary">Go there</a>
+                </div>
+            </div>
+        </div>
+    
+        {% endfor %}
+    
+    </div>
+</div>
+
+
+{% endblock %}
